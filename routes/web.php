@@ -78,7 +78,12 @@ Route::resource('product',ResourceController::class);
 Route::resource('product2',ResourceController::class)->only(['index','create']);
 //if you want to create a resource with all functions except one function
 Route::resource('product3',ResourceController::class)->except(['create']);
-
 Route::apiResource('api-resource',ApiController::class);
-
 Route::get('invoke',InvokableController::class);
+
+Route::post('route15',[FirstController::class,'function3']);
+Route::put('route16',[FirstController::class,'function3']);
+Route::patch('route17',[FirstController::class,'function3']);
+Route::delete('route18',function(){
+    return "hello i am delete";
+});

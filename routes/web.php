@@ -5,6 +5,9 @@ use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
+use App\Http\Controllers\RelationshipController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -87,3 +90,13 @@ Route::patch('route17',[FirstController::class,'function3']);
 Route::delete('route18',function(){
     return "hello i am delete";
 });
+
+
+Route::get('getBooksFromAuthor',[RelationshipController::class,'getBooksFromAuthor']);
+Route::get('getAuthorFromBook',[RelationshipController::class,'getAuthorFromBook']);
+Route::get('getDetailsFromBook',[RelationshipController::class,'getDetailsFromBook']);
+Route::get('getBookFromDetails',[RelationshipController::class,'getBookFromDetails']);
+Route::get('getBooksFromReader',[RelationshipController::class,'getBooksFromReader']);
+Route::get('getReaderFromBook',[RelationshipController::class,'getReaderFromBook']);
+
+

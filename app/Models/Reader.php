@@ -9,6 +9,7 @@ class Reader extends Model
 {
     use HasFactory;
 
+    protected $fillable=['name','balance','is_editor'];
     public function getBooks(){
         return $this->belongsToMany(Book::class,
         'reader_books',

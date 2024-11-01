@@ -6,7 +6,7 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\RelationshipController;
-
+use App\Http\Controllers\ReaderController;
 
 
 Route::get('/', function () {
@@ -98,5 +98,42 @@ Route::get('getDetailsFromBook',[RelationshipController::class,'getDetailsFromBo
 Route::get('getBookFromDetails',[RelationshipController::class,'getBookFromDetails']);
 Route::get('getBooksFromReader',[RelationshipController::class,'getBooksFromReader']);
 Route::get('getReaderFromBook',[RelationshipController::class,'getReaderFromBook']);
+
+
+Route::get('getAllReaders',[ReaderController::class,'getAllReaders']);
+Route::get('getReaderById/{id}',[ReaderController::class,'getReaderById']);
+Route::get('getReaderByIdOrFail/{id}',[ReaderController::class,'getReaderByIdOrFail']);
+Route::get('getReaderByIdOr/{id}',[ReaderController::class,'getReaderByIdOr']);
+Route::get('getReaderWhereIsEditor',[ReaderController::class,'getReaderWhereIsEditor']);
+Route::get('getReaderWhereBalanceGt100',[ReaderController::class,'getReaderWhereBalanceGt100']);
+Route::get('getFirstReaderWhereBalanceGt100',[ReaderController::class,'getFirstReaderWhereBalanceGt100']);
+Route::get('getFirstReaderWhereBalancelt100OrFail/{nb}',[ReaderController::class,'getFirstReaderWhereBalancelt100OrFail']);
+Route::get('getFirstReaderWhereBalancelt100Or/{nb}',[ReaderController::class,'getFirstReaderWhereBalancelt100Or']);
+
+Route::get('getReaderWhereBalanceGt100AndIsEditor',[ReaderController::class,'getReaderWhereBalanceGt100AndIsEditor']);
+Route::get('getReaderWhereBalanceGt100OrIsEditor',[ReaderController::class,'getReaderWhereBalanceGt100OrIsEditor']);
+Route::get('getReadersWhereIn',[ReaderController::class,'getReadersWhereIn']);
+Route::get('getReadersWhereBetween',[ReaderController::class,'getReadersWhereBetween']);
+Route::get('getReadersTake2',[ReaderController::class,'getReadersTake2']);
+Route::get('getNameAndBalanceReaders',[ReaderController::class,'getNameAndBalanceReaders']);
+Route::get('getReadersOrderByBalance',[ReaderController::class,'getReadersOrderByBalance']);
+Route::get('getReadersOrderByBalanceDesc',[ReaderController::class,'getReadersOrderByBalanceDesc']);
+Route::get('getSumBalanceReader',[ReaderController::class,'getSumBalanceReader']);
+Route::get('getCountBalanceReader',[ReaderController::class,'getCountBalanceReader']);
+Route::get('getMaxBalanceReader',[ReaderController::class,'getMaxBalanceReader']);
+Route::get('getMinBalanceReader',[ReaderController::class,'getMinBalanceReader']);
+Route::get('getAvgBalanceReader',[ReaderController::class,'getAvgBalanceReader']);
+Route::get('getAuhtorsAndBooks',[ReaderController::class,'getAuhtorsAndBooks']);
+Route::get('addReader1',[ReaderController::class,'addReader1']);
+Route::post('addReader2',[ReaderController::class,'addReader2']);
+Route::get('addReader3',[ReaderController::class,'addReader3']);
+Route::post('addReader4',[ReaderController::class,'addReader4']);
+Route::post('addReader5',[ReaderController::class,'addReader5']);
+
+
+
+
+
+
 
 

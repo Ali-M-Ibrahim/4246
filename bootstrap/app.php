@@ -18,7 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'route18',
             'addReader2',
             'addReader4',
-            'addReader5'
+            'addReader5',
+            'updateReader2/*',
+            'deleteReader/*',
+            'uni',
+            'uni/*',
+            'update4/*'
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

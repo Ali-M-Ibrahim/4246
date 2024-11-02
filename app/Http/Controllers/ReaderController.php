@@ -216,5 +216,51 @@ class ReaderController extends Controller
         return "created";
     }
 
+    function updateReader1(){
+        $data = Reader::find(1);
+        $data->name= 'Updated name';
+        $data->balance=5000;
+        $data->is_editor=false;
+        $data->save();
+        return "updated";
+    }
 
+    function updateReader2(Request $request,$id){
+        $data = Reader::find($id);
+        $data->name= $request->name;
+        $data->balance=$request->balance;
+        $data->is_editor=$request->is_editor;
+        $data->save();
+        return "updated";
+    }
+
+    function updateReader3(){
+        Reader::where('is_editor',false)
+            ->update(['balance'=>0,'name'=>'XX']);
+        return "updated";
+    }
+
+
+    function deleteReader($id){
+        $data= Reader::find($id);
+        $data->delete();
+        return "deleted";
+    }
+
+    function massDelete(){
+        Reader::where('is_editor',false)
+            ->delete();
+        return "deleted";
+    }
+
+    function update4(Request $request,$id){
+        $data = Reader::find($id);
+        $data->fill($request->all());
+        if ($data->isClean()) {
+            return response()->json(['message' => 'Please update the data'], 400);
+        }
+
+        $data->save();
+        return "ok update";
+    }
 }

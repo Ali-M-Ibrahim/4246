@@ -7,7 +7,8 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\ReaderController;
-
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\UniversityController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -132,8 +133,25 @@ Route::post('addReader5',[ReaderController::class,'addReader5']);
 
 
 
+Route::get('updateReader1',[ReaderController::class,'updateReader1']);
+Route::put('updateReader2/{id}',[ReaderController::class,'updateReader2']);
+Route::get('updateReader3',[ReaderController::class,'updateReader3']);
+Route::get('deleteReader/{id}',[ReaderController::class,'deleteReader']);
+Route::delete('deleteReader/{id}',[ReaderController::class,'deleteReader']);
+Route::get('massDelete',[ReaderController::class,'massDelete']);
+Route::put('update4/{id}',[ReaderController::class,'update4']);
 
 
+
+Route::get('viewPage',[ViewController::class,'index']);
+Route::get('viewPage2',[ViewController::class,'index2']);
+Route::get('viewPage3',[ViewController::class,'index3']);
+Route::get('getViewReader/{id}',[ViewController::class,'getViewReader']);
+Route::get('getListReaders',[ViewController::class,'getListReaders']);
+Route::get('rendertest',[ViewController::class,'rendertest']);
+Route::get('rendertest2',[ViewController::class,'rendertest2']);
+
+Route::apiResource('uni',UniversityController::class);
 
 
 

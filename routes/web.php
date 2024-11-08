@@ -9,6 +9,9 @@ use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\ReaderController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\UniversityController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentResourceController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -155,3 +158,13 @@ Route::apiResource('uni',UniversityController::class);
 
 
 
+Route::get('create-student',[StudentController::class,'create'])->name('student-create');
+Route::post('store-student',[StudentController::class,'store'])->name('student-store');
+Route::get('list-student',[StudentController::class,'list'])->name('student-list');
+Route::get('view-student/{id}',[StudentController::class,'view'])->name('student-view');
+Route::get('edit-student/{id}',[StudentController::class,'edit'])->name('student-edit');
+Route::put('update-student/{id}',[StudentController::class,'update'])->name('student-update');
+Route::delete('delete-student/{id}',[StudentController::class,'delete'])->name('student-delete');
+Route::get('destroy-student/{id}',[StudentController::class,'delete'])->name('student-destroy');
+
+Route::resource('student',StudentResourceController::class);

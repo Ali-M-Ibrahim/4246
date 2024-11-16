@@ -11,7 +11,11 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\UniversityController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentResourceController;
+use App\Http\Controllers\ImageController;
 
+use App\Http\Controllers\MiddlewareController;
+
+use App\Http\Controllers\DIController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -168,3 +172,22 @@ Route::delete('delete-student/{id}',[StudentController::class,'delete'])->name('
 Route::get('destroy-student/{id}',[StudentController::class,'delete'])->name('student-destroy');
 
 Route::resource('student',StudentResourceController::class);
+
+Route::get('upload-image',[ImageController::class,'index']);
+Route::post('upload',[ImageController::class,'method1'])->name('method1');
+Route::get('display-image/{id}',[ImageController::class,'display']);
+Route::post('upload2',[ImageController::class,'method2'])->name('method2');
+Route::post('upload3',[ImageController::class,'method3'])->name('method3');
+
+
+Route::get('f2',[DIController::class,'f2'])->middleware('secretfilter');
+
+
+Route::middleware('secretfilter')->group(function () {
+    Route::get('f1',[DIController::class,'f1']);
+    Route::get('f3',[DIController::class,'f3']);
+    Route::get('f4',[DIController::class,'f4']);
+ });
+
+
+Route::get('middleware',[MiddlewareController::class,'index']);

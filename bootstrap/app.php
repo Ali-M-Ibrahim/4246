@@ -11,6 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'secretfilter' => App\Http\Middleware\checksecret::class
+        ]);
+
+
+
         $middleware->validateCsrfTokens(except: [
             'route15',
             'route16',

@@ -15,7 +15,11 @@ use App\Http\Controllers\ImageController;
 
 use App\Http\Controllers\MiddlewareController;
 
+
+
 use App\Http\Controllers\DIController;
+use App\Http\Controllers\TraitController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -191,3 +195,4 @@ Route::middleware('secretfilter')->group(function () {
 
 
 Route::get('middleware',[MiddlewareController::class,'index']);
+Route::get('trait',[TraitController::class,'index']);
